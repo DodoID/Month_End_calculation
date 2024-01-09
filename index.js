@@ -103,3 +103,19 @@ dataset.forEach((record, index) => {
   if (index > 0) {
       let monthlyChange = record["Profit/Losses"] - previousMonthValue;
       totalChange += monthlyChange;
+
+       // Check for maximum increase in profits 
+       if (monthlyChange > greatestIncrease.Amount) {
+        greatestIncrease.Date = record.Date;
+        greatestIncrease.Amount = monthlyChange;
+    }
+
+    // Check for lowest decrease in profits 
+    if (monthlyChange < greatestDecrease.Amount) {
+        greatestDecrease.Date = record.Date;
+        greatestDecrease.Amount = monthlyChange;
+    }
+
+    previousMonthValue = record["Profit/Losses"];
+}
+});

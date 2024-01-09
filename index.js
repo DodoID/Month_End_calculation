@@ -88,3 +88,10 @@ const dataset = [
   { Date: "Feb-2017", "Profit/Losses": 671099 },
 ];
 
+// variables initilising and adding to the total values to be used later
+let totalMonths = dataset.length;
+let totalProfitLosses = 0;
+let previousMonthValue = dataset[0]["Profit/Losses"];
+let totalChange = 0;
+let greatestIncrease = { Date: "", Amount: 1 };
+let greatestDecrease = { Date: "", Amount: 1 };

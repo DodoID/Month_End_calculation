@@ -119,3 +119,15 @@ dataset.forEach((record, index) => {
     previousMonthValue = record["Profit/Losses"];
 }
 });
+
+/ command to calculate the average change per month and display it
+let averageChange = totalChange / (totalMonths - 1);
+
+// console log for the results commands to be displayed in the terminal
+console.log(`Total Months: ${totalMonths}`);
+console.log(`Total: $${totalProfitLosses}`);
+console.log(`Average Change: ${averageChange.toFixed(2)}`);
+console.log(`Greatest Increase in Profits/Losses: ${greatestIncrease.Date} ($${greatestIncrease.Amount})`);
+console.log(`Greatest Decrease in Profits/Losses: ${greatestDecrease.Date} ($${greatestDecrease.Amount})`);
+
+// ----The END---

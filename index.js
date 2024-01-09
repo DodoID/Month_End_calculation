@@ -95,3 +95,11 @@ let previousMonthValue = dataset[0]["Profit/Losses"];
 let totalChange = 0;
 let greatestIncrease = { Date: "", Amount: 0 };
 let greatestDecrease = { Date: "", Amount: 0 };
+
+// dataset processing comands to calculate the total values and the average change per month
+dataset.forEach((record, index) => {
+  totalProfitLosses += record["Profit/Losses"];
+
+  if (index > 0) {
+      let monthlyChange = record["Profit/Losses"] - previousMonthValue;
+      totalChange += monthlyChange;

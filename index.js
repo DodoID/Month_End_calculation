@@ -104,23 +104,23 @@ dataset.forEach((record, index) => {
       let monthlyChange = record["Profit/Losses"] - previousMonthValue;
       totalChange += monthlyChange;
 
-       // Check for maximum increase in profits 
-       if (monthlyChange > greatestIncrease.Amount) {
-        greatestIncrease.Date = record.Date;
-        greatestIncrease.Amount = monthlyChange;
-    }
+      // Check for maximum increase in profits 
+      if (monthlyChange > greatestIncrease.Amount) {
+          greatestIncrease.Date = record.Date;
+          greatestIncrease.Amount = monthlyChange;
+      }
 
-    // Check for lowest decrease in profits 
-    if (monthlyChange < greatestDecrease.Amount) {
-        greatestDecrease.Date = record.Date;
-        greatestDecrease.Amount = monthlyChange;
-    }
+      // Check for lowest decrease in profits 
+      if (monthlyChange < greatestDecrease.Amount) {
+          greatestDecrease.Date = record.Date;
+          greatestDecrease.Amount = monthlyChange;
+      }
 
-    previousMonthValue = record["Profit/Losses"];
-}
+      previousMonthValue = record["Profit/Losses"];
+  }
 });
 
-/ command to calculate the average change per month and display it
+// command to calculate the average change per month and display it
 let averageChange = totalChange / (totalMonths - 1);
 
 // console log for the results commands to be displayed in the terminal
@@ -130,4 +130,4 @@ console.log(`Average Change: ${averageChange.toFixed(2)}`);
 console.log(`Greatest Increase in Profits/Losses: ${greatestIncrease.Date} ($${greatestIncrease.Amount})`);
 console.log(`Greatest Decrease in Profits/Losses: ${greatestDecrease.Date} ($${greatestDecrease.Amount})`);
 
-// ----The END---
+// ---The End---
